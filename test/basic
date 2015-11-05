@@ -1,0 +1,369 @@
+# fa regress tests
+#
+# format is
+#
+# key=value
+# name1:regexp1
+# name2:regexp2
+# name3:regexp3
+#   name1:input1
+#   name2:input2
+#   name3:input3
+#
+# name is name of regexp, indentet rows are test cases with regexp to match
+# name "!" is no match
+# name "e" is error, input used to match on error string
+# name "m" is more data is needed
+#
+# keys:
+# "states" and "trans" for limiting amount of states and transitions a regexp
+# nfa or determinization can generate
+# "dtimeout" and "mtimeout" are time limit in ms for minimize and determinize
+# "removeacceptingtrans, remove transitions from all accepting states
+# "dotall", set if dot should match any character
+
+# concat
+1:^abc$
+  1:abc
+  m:ab
+
+1:^(a)(b)(c)$
+  1:abc
+  m:ab
+
+# union
+1:^a|b$
+  1:a
+  1:b
+  !:c
+
+1:^ab|cd$
+  1:ab
+  1:cd
+  !:ac
+
+# repeat
+1:^a*$
+  1:a
+  1:a
+  1:aa
+  !:b
+
+1:^a{0,}$
+  1:
+  1:a
+  1:aa
+  !:b
+
+1:^a{0,1}$
+  1:
+  1:a
+  !:aa
+
+1:^a?$
+  1:
+  1:a
+  !:aa
+
+1:^a{1}$
+  m:
+  1:a
+  !:aa
+
+1:^a{2}$
+  m:
+  m:a
+  1:aa
+  !:aaa
+
+1:^a{1,}$
+  m:
+  1:a
+  1:aa
+  !:b
+
+1:^a+$
+  m:
+  1:a
+  1:aa
+  !:b
+
+1:^a{2,}$
+  m:
+  m:a
+  1:aa
+  1:aaa
+  !:b
+
+1:^a{1,2}$
+  m:
+  1:a
+  1:aa
+  !:aaa
+
+# {0} skip
+1:^ab{0}c$
+  1:ac
+  !:abc
+
+# anchoring
+1:a
+  m:
+  m:b
+  1:a
+  1:aa
+  1:bab
+  1:aaba
+
+1:^a
+  m:
+  !:b
+  !:ba
+  1:a
+  1:ab
+  1:aba
+
+1:a$
+  m:
+  m:b
+  1:ba
+  1:a
+  1:ba
+  1:aba
+
+1:^$
+  1:
+  !:a
+
+1:^
+  1:
+  1:a
+
+1:$
+  1:
+  1:a
+
+1:a*
+  1:a
+# start or end any state matches b and zero a
+  1:b
+
+1:a+
+  1:a
+  m:b
+
+# weird one, pcre seams to match anything for $$
+ignorepcre=1
+1:$$
+  1:$
+  m:$a
+
+1:\$$
+  1:$
+  m:$a
+
+1:\$
+  1:$
+  1:a$a
+
+# combined
+
+# concat+union
+ignorepcre=1
+1:^ab|c$
+  1:ab
+# matches for pcre, exps i evaled as ^(ab.*)|c$, that is ab is unanchored
+  !:ac
+# matches ab unanchored
+  !:abc
+  1:c
+
+1:^a(b|c)$
+  1:ab
+  1:ac
+  !:abc
+
+# same as above about anchoring
+ignorepcre=1
+1:^a|bc$
+  !:ab
+  1:bc
+  !:abc
+
+1:^(a|b)c$
+  !:ab
+  1:ac
+  1:bc
+  !:abc
+
+# concat+repeat
+1:^aa*$
+  m:
+  1:a
+  1:aa
+
+1:^ab*a$
+  m:
+  m:a
+  1:aa
+  1:aba
+  1:abba
+  m:ab
+  !:ba
+
+# concat+union+repeat
+1:^a(a|b)c*$
+  m:
+  m:a
+  1:ab
+  1:abc
+  1:abcc
+  1:ab
+  1:abc
+  1:abcc
+
+1:^a(a|b)(c)*$
+  m:
+  m:a
+  1:ab
+  1:abc
+  1:abcc
+  1:ab
+  1:abc
+  1:abcc
+
+1:^a|b|c$
+  1:a
+  1:b
+  1:c
+  !:d
+
+1:^a|c|b$
+  1:a
+  1:b
+  1:c
+  !:d
+
+1:^a(a|b|)$
+  1:a
+  1:aa
+  1:ab
+  !:ac
+
+1:^a(|a|)$
+  1:a
+  1:aa
+  !:ab
+
+1:^a(|)$
+  1:a
+  !:aa
+
+1:^a(?#blabla)b$
+  1:ab
+
+1:^[(?#blabla)]*$
+  1:(?#bla)
+
+1:^\377$
+  1:\xff
+
+# not pcre correct
+ignorepcre=1
+1:^\777$
+  1:\x3f7
+
+1:^\001$
+  1:\x01
+
+1:^\0$
+  1:\x00
+
+1:^\a$
+  1:\x07
+
+1:^\e$
+  1:\x1b
+
+1:^\f$
+  1:\x0c
+
+1:^\t$
+  1:\x09
+
+# control characters
+1:^\cA\cB\cC\cD\cE\cF\cG\cH\cI\cJ\cK\cL\cM\cN\cO\cP\cQ\cR\cS\cT\cU\cV\cW\cX\cY\cZ\c[\c\\c]\c^\c_\ca\cb\cc\cd\ce\cf\cg\ch\ci\cj\ck\cl\cm\cn\co\cp\cq\cr\cs\ct\cu\cv\cw\cx\cy\cz$
+  1:\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a
+
+1:^\c;\c{$
+  1:\x7b\x3b
+
+# escape non-escape
+1:^\m$
+  1:m
+
+1:^\.$
+  1:.
+
+1:^\x\xf\xff\xfm$
+  1:\x00\x0f\xff\x0fm
+
+ignorepcre=1
+1:^\0\7$
+  1:\x00\x07
+
+# \Q...\E quoting
+1:^\Q\xff[a-c]a{1,3}*+(?)(?i)\E$
+  1:\\xff[a-c]a{1,3}*+(?)(?i)
+
+1:^[\Qa-c\E]$
+  1:a
+  1:-
+  1:c
+  !:b
+
+1:^(?i)ab$
+  1:ab
+  1:aB
+  1:Ab
+  1:AB
+
+1:^(?ii)ab$
+  1:ab
+  1:aB
+  1:Ab
+  1:AB
+
+1:^(?i)a(?-i)b$
+  1:ab
+  1:Ab
+  !:aB
+  !:AB
+
+1:^(a(?i)b)c$
+  1:abc
+  1:aBc
+  !:Abc
+  !:ABc
+  !:AbC
+  !:ABC
+  !:abC
+  !:aBC
+
+1:^a(?i)(b)(?-i)c$
+  1:abc
+  1:aBc
+  !:Abc
+  !:ABc
+  !:AbC
+  !:ABC
+  !:abC
+  !:aBC
+
+1:^(a(?i)b|c)$
+  1:ab
+  1:aB
+  !:Ab
+  !:AB
+  1:c
+  1:C

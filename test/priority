@@ -1,0 +1,18 @@
+ignorepcre=1
+1:^a$
+2:^aa$
+3:^a*$
+  1:a
+  2:aa
+  3:aaa
+  3:
+  !:b
+
+ignorepcre=1
+1:^ab$
+2:^abab$
+3:^(ab)*$
+  1:ab
+  2:abab
+  3:ababab
+  !:c

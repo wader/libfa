@@ -1,0 +1,124 @@
+#!/usr/bin/env ruby
+# Licensed as public domain
+# mattias.wadman@gmail.com
+require "open3"
+require "pathname"
+require "tmpdir"
+require "tempfile"
+
+def gcov_parse_report(report)
+  coverage = []
+  source_lines = []
+  headers = {}
+
+  report.lines.each do |line|
+    case line
+    # format:
+    #        -:    0:Key:Value has line number 0
+    #        8:    1:executed line
+    #    #####:    2:non-executed line
+    #        -:    3:whitespace/comment line etc
+    when /^\s*(-|\d+|#####):\s*(\d+):(.*)$/
+      linenumber = $2.to_i
+
+      if linenumber == 0
+        keyvalue = $3
+        key, value = keyvalue.split(":", 2)
+        headers[key] = value
+      else
+        times = $1
+        source_line = $3
+
+        coverage.push(
+          case times
+          when "-" then nil
+          when "#####" then 0
+          when /\d+/ then times.to_i
+          end
+        )
+
+        source_lines.push(source_line)
+      end
+    end
+  end
+
+  {:headers => headers,
+   :coverage => coverage,
+   :source_lines => source_lines}
+end
+
+def gcov_parse(object_dir, srcroot)
+  gcovs = []
+
+  # run gcov in temp directory
+  Dir.mktmpdir do |dir|
+    Dir.chdir(dir) do
+      cmd = [
+        "gcov",
+        "--preserve-paths",
+        "--object-directory", object_dir
+      ] + Dir[File.join(srcroot, "**/*.{m,c,h,cpp,c++,cc,cp,cxx,hpp,mm}")]
+      _in, out, _err = Open3.popen3(*cmd)
+      while not out.eof? do
+        # TODO: check for error?
+        out.readline
+      end
+
+      Dir.glob("*") do |file|
+        gcovs.push(gcov_parse_report(open(file).read()))
+      end
+    end
+  end
+
+  gcovs
+end
+
+def output_stats(gcov_reports, srcroot)
+  srcroot_path = Pathname(srcroot)
+  coverage_files = []
+
+  gcov_reports.each do |report|
+    path = report[:headers]["Source"]
+    skipped_lines = 0
+    code_lines = 0
+    executed_lines = 0
+
+    report[:coverage].each do |coverage|
+      if coverage == nil
+        skipped_lines += 1
+      else
+        code_lines +=1
+        executed_lines += 1 if coverage > 0
+      end
+    end
+
+    coverage_files.push({
+      :path => path,
+      :skipped_lines => skipped_lines,
+      :code_lines => code_lines,
+      :executed_lines => executed_lines,
+      :percent => executed_lines.to_f / code_lines * 100
+    })
+  end
+
+  total_code_lines = 0
+  total_executed_lines = 0
+  coverage_files.sort_by { |c| c[:percent] }.reverse.each do |c|
+    puts "%7.2f%%  %s" % [c[:percent], c[:path]]
+    total_code_lines += c[:code_lines]
+    total_executed_lines += c[:executed_lines]
+  end
+  puts "=%6.2f%%" % [total_executed_lines.to_f / total_code_lines * 100]
+
+end
+
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+
+srcroot = Pathname.pwd.to_s
+gcov_data_path = Pathname.pwd.to_s
+gcov_reports = gcov_parse(gcov_data_path, srcroot)
+gcov_reports.select! {|gcov| not gcov[:headers]["Source"].start_with? "/" }
+
+output_stats(gcov_reports, srcroot)
+

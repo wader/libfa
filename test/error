@@ -1,0 +1,48 @@
+1:ab(c
+  e:unmatched sub expression start
+
+1:^ab(c$
+  e:unmatched sub expression start
+
+1:ab)c
+  e:unmatched sub expression end
+
+1:ab[c
+  e:syntax error
+
+1:ab]c
+  1:ab]c
+
+1:ab{c
+  e:syntax error
+
+1:ab}c
+  1:ab}c
+
+1:a{2,1}
+  e:min repeat must be less or equal to max repeat
+
+1:[^\x00-\xff]
+  e:character class does not match any characters
+
+1:[c-a]
+  e:invalid character range
+
+1:(?B0:4)
+  e:binary is not byte aligned
+
+1:(?B0:m)
+  e:invalid binary expression
+
+states=2000
+trans=1000000
+1:a{2000}
+  e:repeat will generates too many states or transitions
+
+states=1000000
+trans=2000
+1:a{3000}
+  e:repeat will generates too many states or transitions
+
+1:(?a)
+  e:unknown option

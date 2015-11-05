@@ -1,0 +1,647 @@
+1:^January$
+2:^February$
+3:^March$
+4:^April$
+5:^May$
+6:^June$
+7:^July$
+8:^August$
+9:^September$
+10:^October$
+11:^November$
+12:^December$
+  1:January
+  2:February
+  3:March
+  4:April
+  5:May
+  6:June
+  7:July
+  8:August
+  9:September
+  10:October
+  11:November
+  12:December
+  !:none
+
+1:abc
+2:cde
+3:efg
+4:hij
+5:jkl
+  1:abc
+  2:cde
+  3:efg
+  4:hij
+  5:jkl
+  1:mabcm
+  2:ncden
+  3:oefgo
+  4:phijp
+  5:qjklq
+  m:mno
+
+0:^a\x00$
+1:^a\x01$
+2:^a\x02$
+3:^a\x03$
+4:^a\x04$
+5:^a\x05$
+6:^a\x06$
+7:^a\x07$
+8:^a\x08$
+9:^a\x09$
+10:^a\x0a$
+11:^a\x0b$
+12:^a\x0c$
+13:^a\x0d$
+14:^a\x0e$
+15:^a\x0f$
+16:^a\x10$
+17:^a\x11$
+18:^a\x12$
+19:^a\x13$
+20:^a\x14$
+21:^a\x15$
+22:^a\x16$
+23:^a\x17$
+24:^a\x18$
+25:^a\x19$
+26:^a\x1a$
+27:^a\x1b$
+28:^a\x1c$
+29:^a\x1d$
+30:^a\x1e$
+31:^a\x1f$
+32:^a\x20$
+33:^a\x21$
+34:^a\x22$
+35:^a\x23$
+36:^a\x24$
+37:^a\x25$
+38:^a\x26$
+39:^a\x27$
+40:^a\x28$
+41:^a\x29$
+42:^a\x2a$
+43:^a\x2b$
+44:^a\x2c$
+45:^a\x2d$
+46:^a\x2e$
+47:^a\x2f$
+48:^a\x30$
+49:^a\x31$
+50:^a\x32$
+51:^a\x33$
+52:^a\x34$
+53:^a\x35$
+54:^a\x36$
+55:^a\x37$
+56:^a\x38$
+57:^a\x39$
+58:^a\x3a$
+59:^a\x3b$
+60:^a\x3c$
+61:^a\x3d$
+62:^a\x3e$
+63:^a\x3f$
+64:^a\x40$
+65:^a\x41$
+66:^a\x42$
+67:^a\x43$
+68:^a\x44$
+69:^a\x45$
+70:^a\x46$
+71:^a\x47$
+72:^a\x48$
+73:^a\x49$
+74:^a\x4a$
+75:^a\x4b$
+76:^a\x4c$
+77:^a\x4d$
+78:^a\x4e$
+79:^a\x4f$
+80:^a\x50$
+81:^a\x51$
+82:^a\x52$
+83:^a\x53$
+84:^a\x54$
+85:^a\x55$
+86:^a\x56$
+87:^a\x57$
+88:^a\x58$
+89:^a\x59$
+90:^a\x5a$
+91:^a\x5b$
+92:^a\x5c$
+93:^a\x5d$
+94:^a\x5e$
+95:^a\x5f$
+96:^a\x60$
+97:^a\x61$
+98:^a\x62$
+99:^a\x63$
+100:^a\x64$
+101:^a\x65$
+102:^a\x66$
+103:^a\x67$
+104:^a\x68$
+105:^a\x69$
+106:^a\x6a$
+107:^a\x6b$
+108:^a\x6c$
+109:^a\x6d$
+110:^a\x6e$
+111:^a\x6f$
+112:^a\x70$
+113:^a\x71$
+114:^a\x72$
+115:^a\x73$
+116:^a\x74$
+117:^a\x75$
+118:^a\x76$
+119:^a\x77$
+120:^a\x78$
+121:^a\x79$
+122:^a\x7a$
+123:^a\x7b$
+124:^a\x7c$
+125:^a\x7d$
+126:^a\x7e$
+127:^a\x7f$
+128:^a\x80$
+129:^a\x81$
+130:^a\x82$
+131:^a\x83$
+132:^a\x84$
+133:^a\x85$
+134:^a\x86$
+135:^a\x87$
+136:^a\x88$
+137:^a\x89$
+138:^a\x8a$
+139:^a\x8b$
+140:^a\x8c$
+141:^a\x8d$
+142:^a\x8e$
+143:^a\x8f$
+144:^a\x90$
+145:^a\x91$
+146:^a\x92$
+147:^a\x93$
+148:^a\x94$
+149:^a\x95$
+150:^a\x96$
+151:^a\x97$
+152:^a\x98$
+153:^a\x99$
+154:^a\x9a$
+155:^a\x9b$
+156:^a\x9c$
+157:^a\x9d$
+158:^a\x9e$
+159:^a\x9f$
+160:^a\xa0$
+161:^a\xa1$
+162:^a\xa2$
+163:^a\xa3$
+164:^a\xa4$
+165:^a\xa5$
+166:^a\xa6$
+167:^a\xa7$
+168:^a\xa8$
+169:^a\xa9$
+170:^a\xaa$
+171:^a\xab$
+172:^a\xac$
+173:^a\xad$
+174:^a\xae$
+175:^a\xaf$
+176:^a\xb0$
+177:^a\xb1$
+178:^a\xb2$
+179:^a\xb3$
+180:^a\xb4$
+181:^a\xb5$
+182:^a\xb6$
+183:^a\xb7$
+184:^a\xb8$
+185:^a\xb9$
+186:^a\xba$
+187:^a\xbb$
+188:^a\xbc$
+189:^a\xbd$
+190:^a\xbe$
+191:^a\xbf$
+192:^a\xc0$
+193:^a\xc1$
+194:^a\xc2$
+195:^a\xc3$
+196:^a\xc4$
+197:^a\xc5$
+198:^a\xc6$
+199:^a\xc7$
+200:^a\xc8$
+201:^a\xc9$
+202:^a\xca$
+203:^a\xcb$
+204:^a\xcc$
+205:^a\xcd$
+206:^a\xce$
+207:^a\xcf$
+208:^a\xd0$
+209:^a\xd1$
+210:^a\xd2$
+211:^a\xd3$
+212:^a\xd4$
+213:^a\xd5$
+214:^a\xd6$
+215:^a\xd7$
+216:^a\xd8$
+217:^a\xd9$
+218:^a\xda$
+219:^a\xdb$
+220:^a\xdc$
+221:^a\xdd$
+222:^a\xde$
+223:^a\xdf$
+224:^a\xe0$
+225:^a\xe1$
+226:^a\xe2$
+227:^a\xe3$
+228:^a\xe4$
+229:^a\xe5$
+230:^a\xe6$
+231:^a\xe7$
+232:^a\xe8$
+233:^a\xe9$
+234:^a\xea$
+235:^a\xeb$
+236:^a\xec$
+237:^a\xed$
+238:^a\xee$
+239:^a\xef$
+240:^a\xf0$
+241:^a\xf1$
+242:^a\xf2$
+243:^a\xf3$
+244:^a\xf4$
+245:^a\xf5$
+246:^a\xf6$
+247:^a\xf7$
+248:^a\xf8$
+249:^a\xf9$
+250:^a\xfa$
+251:^a\xfb$
+252:^a\xfc$
+253:^a\xfd$
+254:^a\xfe$
+255:^a\xff$
+  0:a\x00
+  1:a\x01
+  2:a\x02
+  3:a\x03
+  4:a\x04
+  5:a\x05
+  6:a\x06
+  7:a\x07
+  8:a\x08
+  9:a\x09
+  10:a\x0a
+  11:a\x0b
+  12:a\x0c
+  13:a\x0d
+  14:a\x0e
+  15:a\x0f
+  16:a\x10
+  17:a\x11
+  18:a\x12
+  19:a\x13
+  20:a\x14
+  21:a\x15
+  22:a\x16
+  23:a\x17
+  24:a\x18
+  25:a\x19
+  26:a\x1a
+  27:a\x1b
+  28:a\x1c
+  29:a\x1d
+  30:a\x1e
+  31:a\x1f
+  32:a\x20
+  33:a\x21
+  34:a\x22
+  35:a\x23
+  36:a\x24
+  37:a\x25
+  38:a\x26
+  39:a\x27
+  40:a\x28
+  41:a\x29
+  42:a\x2a
+  43:a\x2b
+  44:a\x2c
+  45:a\x2d
+  46:a\x2e
+  47:a\x2f
+  48:a\x30
+  49:a\x31
+  50:a\x32
+  51:a\x33
+  52:a\x34
+  53:a\x35
+  54:a\x36
+  55:a\x37
+  56:a\x38
+  57:a\x39
+  58:a\x3a
+  59:a\x3b
+  60:a\x3c
+  61:a\x3d
+  62:a\x3e
+  63:a\x3f
+  64:a\x40
+  65:a\x41
+  66:a\x42
+  67:a\x43
+  68:a\x44
+  69:a\x45
+  70:a\x46
+  71:a\x47
+  72:a\x48
+  73:a\x49
+  74:a\x4a
+  75:a\x4b
+  76:a\x4c
+  77:a\x4d
+  78:a\x4e
+  79:a\x4f
+  80:a\x50
+  81:a\x51
+  82:a\x52
+  83:a\x53
+  84:a\x54
+  85:a\x55
+  86:a\x56
+  87:a\x57
+  88:a\x58
+  89:a\x59
+  90:a\x5a
+  91:a\x5b
+  92:a\x5c
+  93:a\x5d
+  94:a\x5e
+  95:a\x5f
+  96:a\x60
+  97:a\x61
+  98:a\x62
+  99:a\x63
+  100:a\x64
+  101:a\x65
+  102:a\x66
+  103:a\x67
+  104:a\x68
+  105:a\x69
+  106:a\x6a
+  107:a\x6b
+  108:a\x6c
+  109:a\x6d
+  110:a\x6e
+  111:a\x6f
+  112:a\x70
+  113:a\x71
+  114:a\x72
+  115:a\x73
+  116:a\x74
+  117:a\x75
+  118:a\x76
+  119:a\x77
+  120:a\x78
+  121:a\x79
+  122:a\x7a
+  123:a\x7b
+  124:a\x7c
+  125:a\x7d
+  126:a\x7e
+  127:a\x7f
+  128:a\x80
+  129:a\x81
+  130:a\x82
+  131:a\x83
+  132:a\x84
+  133:a\x85
+  134:a\x86
+  135:a\x87
+  136:a\x88
+  137:a\x89
+  138:a\x8a
+  139:a\x8b
+  140:a\x8c
+  141:a\x8d
+  142:a\x8e
+  143:a\x8f
+  144:a\x90
+  145:a\x91
+  146:a\x92
+  147:a\x93
+  148:a\x94
+  149:a\x95
+  150:a\x96
+  151:a\x97
+  152:a\x98
+  153:a\x99
+  154:a\x9a
+  155:a\x9b
+  156:a\x9c
+  157:a\x9d
+  158:a\x9e
+  159:a\x9f
+  160:a\xa0
+  161:a\xa1
+  162:a\xa2
+  163:a\xa3
+  164:a\xa4
+  165:a\xa5
+  166:a\xa6
+  167:a\xa7
+  168:a\xa8
+  169:a\xa9
+  170:a\xaa
+  171:a\xab
+  172:a\xac
+  173:a\xad
+  174:a\xae
+  175:a\xaf
+  176:a\xb0
+  177:a\xb1
+  178:a\xb2
+  179:a\xb3
+  180:a\xb4
+  181:a\xb5
+  182:a\xb6
+  183:a\xb7
+  184:a\xb8
+  185:a\xb9
+  186:a\xba
+  187:a\xbb
+  188:a\xbc
+  189:a\xbd
+  190:a\xbe
+  191:a\xbf
+  192:a\xc0
+  193:a\xc1
+  194:a\xc2
+  195:a\xc3
+  196:a\xc4
+  197:a\xc5
+  198:a\xc6
+  199:a\xc7
+  200:a\xc8
+  201:a\xc9
+  202:a\xca
+  203:a\xcb
+  204:a\xcc
+  205:a\xcd
+  206:a\xce
+  207:a\xcf
+  208:a\xd0
+  209:a\xd1
+  210:a\xd2
+  211:a\xd3
+  212:a\xd4
+  213:a\xd5
+  214:a\xd6
+  215:a\xd7
+  216:a\xd8
+  217:a\xd9
+  218:a\xda
+  219:a\xdb
+  220:a\xdc
+  221:a\xdd
+  222:a\xde
+  223:a\xdf
+  224:a\xe0
+  225:a\xe1
+  226:a\xe2
+  227:a\xe3
+  228:a\xe4
+  229:a\xe5
+  230:a\xe6
+  231:a\xe7
+  232:a\xe8
+  233:a\xe9
+  234:a\xea
+  235:a\xeb
+  236:a\xec
+  237:a\xed
+  238:a\xee
+  239:a\xef
+  240:a\xf0
+  241:a\xf1
+  242:a\xf2
+  243:a\xf3
+  244:a\xf4
+  245:a\xf5
+  246:a\xf6
+  247:a\xf7
+  248:a\xf8
+  249:a\xf9
+  250:a\xfa
+  251:a\xfb
+  252:a\xfc
+  253:a\xfd
+  254:a\xfe
+  255:a\xff
+
+00:^a\x00$
+64:^a\x40$
+128:^a\x80$
+192:^a\xc0$
+255:^a\xff$
+  00:a\x00
+  !:a\x01
+  !:a\x3f
+  64:a\x40
+  !:a\x41
+  !:a\x7f
+  128:a\x80
+  !:a\x81
+  !:a\xbf
+  192:a\xc0
+  !:a\xc1
+  !:a\xfe
+  255:a\xff
+
+# TODO: not valid for pcre, same as {3,}
+ignorepcre=1
+1:^a{3,0}$
+  m:a
+  1:aaa
+  1:aaaa
+
+1:^a{3,}$
+  m:a
+  1:aaa
+  1:aaaa
+
+1:^a{0,3}$
+  1:a
+  1:aa
+  1:aaa
+  !:aaaa
+
+ignorepcre=1
+# pcre does not like whitespace and parse it as chars
+1:^a{  1 , 2  }$
+  1:a
+  1:aa
+  !:aaa
+
+states=1000
+trans=1000
+dtimeout=10
+mtimeout=0
+1:January
+2:February
+3:March
+4:April
+5:May
+6:June
+7:July
+8:August
+9:September
+10:October
+11:November
+12:December
+  e:dtimeout
+
+states=1000
+trans=1000
+dtimeout=0
+mtimeout=10
+1:January
+2:February
+3:March
+4:April
+5:May
+6:June
+  e:mtimeout
+
+# remove transitions from accepting
+ignorepcre=1
+removeacceptingtrans=1
+1:^a$
+2:^aa$
+  1:a
+  !:aa
+
+# more input needed
+ignorepcre=1
+1:^aa$
+  m:a
+  1:aa
+
+# fuzzing findings
+re:[a-Va
+  e:syntax error

@@ -1,0 +1,11 @@
+faregress
+fatool
+fagrep
+faexample
+*.o
+*.gcno
+*.gcda
+fa_regexp_lex.c
+fa_regexp_lex.h
+fa_regexp_yacc.c
+fa_regexp_yacc.h
