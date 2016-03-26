@@ -8,6 +8,9 @@ C automata library to build, determinize, minimize, translate regexp etc
 - PCRE is used in regression tests to compare matching with PCRE
 - graphviz if you want to visualize automatons
 
+Ubuntu/Debian: `apt-get install bison flex libpcre3-dev graphviz`  
+Brew (Mac OS X): `brew install bison pcre graphviz`
+
 ### Build
 
 To build run `make`, to run tests `make test`
