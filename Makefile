@@ -5,7 +5,7 @@
 # of the NetBSD license.  See the LICENSE file for details.
 
 CC = cc
-CFLAGS = -std=gnu99 -Wall -Wstrict-prototypes -Wmissing-prototypes -O0 -ggdb -O3 --coverage -pg
+CFLAGS = -std=gnu99 -Wall -Wstrict-prototypes -Wmissing-prototypes -ggdb -O3 --coverage -pg
 LDLIBS = --coverage -pg
 COMMON_OBJS = \
 	fa.o \
