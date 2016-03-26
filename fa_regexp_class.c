@@ -205,12 +205,14 @@ fa_regexp_class_t *fa_regexp_class_named(char *name) {
 fa_regexp_class_t *fa_regexp_class_range(int *pairs, int pairs_n) {
   fa_regexp_class_t *rc;
   fa_regexp_class_chars_t *rcc;
+  int i;
+  int j;
 
   rc = fa_regexp_class_create();
   rcc = fa_regexp_class_chars_create();
-
-  for (int i = 0; i < pairs_n; i++) {
-    for (int j = pairs[i*2]; j <= pairs[i*2+1]; j++)
+  
+  for (i = 0; i < pairs_n; i++) {
+    for (j = pairs[i*2]; j <= pairs[i*2+1]; j++)
       BITFIELD_SET(rcc->map, j);
   }
 
