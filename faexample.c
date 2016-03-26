@@ -21,7 +21,8 @@
 static void *state_pri(void **opaques, int opaques_n) {
   // prioritized lowest number
   void *opaque = opaques[0];
-  for (int i = 1; i < opaques_n; i++) {
+  int i;
+  for (i = 1; i < opaques_n; i++) {
     if ((intptr_t)opaques[i] < (intptr_t)opaque)
       opaque = opaques[i];
   }
